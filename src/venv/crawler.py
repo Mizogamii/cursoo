@@ -38,8 +38,10 @@ class Crawler:
             print("\nG1\n", data)
             
     #extraindo informações do site Adoro Cinema
-    def extract_from_aCinema(self):
-        raw_aCinema = self.request_data('https://www.adorocinema.com/noticias/filmes/cat-23201/')
+    def extract_from_aCinema(self, page: int = 1):
+        raw_aCinema = self.request_data(
+            f'https://www.adorocinema.com/noticias/filmes/cat-23201/?page={page}'
+            )
         news = raw_aCinema.find_all('div', {'class': "card news-card news-card-row mdl cf"})
     
         for newsN in news:
@@ -55,8 +57,11 @@ class Crawler:
 
             print("\nAdoro Cinema\n", data)
 
+    def execute(self,num_pages: int = 4):
+        for page in range(1, num_pages):
+            self.extract_from_aCinema(page)
                 
 if __name__ == "__main__":
     crawler = Crawler()
     crawler.extract_from_g1()
-    crawler.extract_from_aCinema()
+    crawler.execute()
