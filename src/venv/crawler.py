@@ -1,6 +1,12 @@
 #Importando bibliotecas
 import requests 
 from bs4 import BeautifulSoup 
+import json
+import schedule
+import time
+from datetime import datetime
+
+
 
 #Link dos sites:
 #1 https://g1.globo.com/pop-arte/cinema/
@@ -65,3 +71,11 @@ if __name__ == "__main__":
     crawler = Crawler()
     crawler.extract_from_g1()
     crawler.execute()
+
+    def job():
+        print(f"\nExecute Job. Time{str(datetime.now())}")
+        crawler.execute()
+
+    schedule.every(2).minutes.do(job)
+    while True:
+        schedule.run_pending()
