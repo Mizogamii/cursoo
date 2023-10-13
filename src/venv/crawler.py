@@ -55,10 +55,6 @@ class Crawler:
 
             print("\nAdoro Cinema\n", data)
 
-    def execute(self,num_pages: int = 3):
-        for page in  range(1, num_pages):
-            self.extract_from_g1(page)
-            self.extract_from_aCinema(page)
                 
 if __name__ == "__main__":
     crawler = Crawler()
