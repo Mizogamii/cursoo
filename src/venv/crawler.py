@@ -35,7 +35,7 @@ class Crawler:
                 'texto': texto
             }
 
-            print("G1\n", data)
+            print("\nG1\n", data)
             
     #extraindo informações do site Adoro Cinema
     def extract_from_aCinema(self):
@@ -53,12 +53,12 @@ class Crawler:
                 'texto': texto
             }
 
-            print("Adoro Cinema\n", data)
+            print("\nAdoro Cinema\n", data)
 
-    def execute(self,num_pages: int = 3):
+"""    def execute(self,num_pages: int = 3):
         for page in  range(1, num_pages):
             self.extract_from_g1(page)
-            self.extract_from_aCinema(page)
+            self.extract_from_aCinema(page)"""
                 
 if __name__ == "__main__":
     crawler = Crawler()
