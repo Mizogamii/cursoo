@@ -1,12 +1,9 @@
 #Importando bibliotecas
 import requests 
 from bs4 import BeautifulSoup 
-import json
 import schedule
-import time
+import time #Não tô usando ainda 
 from datetime import datetime
-
-
 
 #Link dos sites:
 #1 https://g1.globo.com/pop-arte/cinema/
