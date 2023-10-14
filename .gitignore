@@ -1,4 +1,2 @@
-src/venv
-src/.env
-src/__pycache__
-.idea/
+/venv
+.env
