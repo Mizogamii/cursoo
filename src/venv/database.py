@@ -11,12 +11,12 @@ class DataBase:
         client = MongoClient(os.getenv('DB_URI'))
         db = client['curso']
         return db.news
-    
-    def insert(self, data: dict):
+        
+    def insert(self, data: dict)-> dict | None:
         query = {'title': data['title']}
         resultado = self.news.find(query).sort('date', -1)
-        if resultado == None:
-            self.news.insert(data)
+        if resultado is None:
+            self.news.insert_one(data)
             print(data)
             return data
         else:

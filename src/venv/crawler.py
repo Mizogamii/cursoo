@@ -7,7 +7,6 @@ from datetime import datetime
 from database import DataBase
 from dotenv import load_dotenv
 
-
 #Link dos sites:
 #1 https://g1.globo.com/pop-arte/cinema/
 #2 https://www.adorocinema.com/noticias/filmes/cat-23201/
@@ -32,9 +31,10 @@ class Crawler:
             
     #Extraindo informações do site g1
     def extract_from_g1(self):
-        raw_g1 = self.request_data('https://g1.globo.com/pop-arte/cinema/')
-        news = raw_g1.find_all('div', {'class': "feed-post-body"})
-    
+        request = self.request_data('https://g1.globo.com/pop-arte/cinema/')
+        
+        news = request.find_all('div', {'class': "feed-post-body"})
+        
         for newsN in news:
             #Título da notícia
             title = newsN.find('a', {'class': "feed-post-link gui-color-primary gui-color-hover"}).text
@@ -47,10 +47,10 @@ class Crawler:
                 'date': datetime.now()
             }
             
-            #print("\nG1\n", data)
-
             response = self.db.insert(data)
-            
+        
+            print("\nG1\n", data)
+
     #extraindo informações do site Adoro Cinema
     def extract_from_aCinema(self, page: int = 1):
         raw_aCinema = self.request_data(
@@ -69,10 +69,10 @@ class Crawler:
                 'texto': texto,
                 'date': datetime.now()  
             }
-
-            #print("\nAdoro Cinema\n", data)
-
+            
             response = self.db.insert(data)
+
+            print("\nAdoro Cinema\n", data)
 
     def execute(self,num_pages: int = 4):
         for page in range(1, num_pages):
