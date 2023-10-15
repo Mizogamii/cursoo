@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import schedule
 import time #Não tô usando ainda 
 from datetime import datetime
-from datetime import datetime
 from database import DataBase
 from dotenv import load_dotenv
 
