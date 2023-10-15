@@ -9,8 +9,8 @@ class DataBase:
 
     def connect(self):
         client = MongoClient(os.getenv('DB_URI'))
-        dB = client['curso']
-        return dB.news
+        db = client['curso']
+        return db.news
     
     def insert(self, data: dict):
         query = {'title': data['title']}
@@ -21,12 +21,12 @@ class DataBase:
         else:
             return None
         
-"""if __name__ == "__main__":
+if __name__ == "__main__":
     db = DataBase()
     data = {'title': 'Assista ao trailer do filme "Priscilla', 'texto': 'Drama de Sofia Coppola, com Cailee Spaeny, Jacob Elordi, Ari Cohen e Dagmara Dominczyk.'}
     db.insert(data)
-"""
-if __name__ == "__main__":
+
+"""if __name__ == "__main__":
     db = DataBase()
     data = {'title': 'Assista ao trailer do filme "Priscilla', 'texto': 'Drama de Sofia Coppola, com Cailee Spaeny, Jacob Elordi, Ari Cohen e Dagmara Dominczyk.'}
     
@@ -44,3 +44,4 @@ if __name__ == "__main__":
             print("Documento não encontrado.")
     else:
         print("Inserção falhou.")
+"""
