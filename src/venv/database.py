@@ -11,6 +11,9 @@ class DataBase:
         dB = client['news']
         return dB.news
     
-    def insert(self, date: dict):
-        query = {'title': date['title']}
-        self.news.find(query).sort('date', -1)
+    def insert(self, data: dict):
+        query = {'title': data['title']}
+        resultado = self.news.find(query).sort('date', -1)
+        if resultado == None:
+            return self.news.insert_one(data)
+        
