@@ -6,6 +6,7 @@ import time #Não tô usando ainda
 from datetime import datetime
 from datetime import datetime
 from database import DataBase
+from dotenv import load_dotenv
 
 
 #Link dos sites:
@@ -13,6 +14,10 @@ from database import DataBase
 #2 https://www.adorocinema.com/noticias/filmes/cat-23201/
 
 class Crawler:
+    def __init__(self):
+		load_dotenv()
+		self.db = DataBase()
+		
     #Solicitando http 
     def request_data(self, url: str, retry=False) -> BeautifulSoup:
         try:
@@ -41,9 +46,10 @@ class Crawler:
                 'texto': texto,
                 'date': datetime.now()
             }
-
-            self
+            
             print("\nG1\n", data)
+
+            response = self.db.insert(data)
             
     #extraindo informações do site Adoro Cinema
     def extract_from_aCinema(self, page: int = 1):
@@ -66,6 +72,8 @@ class Crawler:
 
             print("\nAdoro Cinema\n", data)
 
+            response = self.db.insert(data)
+            
     def execute(self,num_pages: int = 4):
         for page in range(1, num_pages):
             self.extract_from_aCinema(page)

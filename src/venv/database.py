@@ -31,7 +31,6 @@ if __name__ == "__main__":
     data = {'title': 'Assista ao trailer do filme "Priscilla', 'texto': 'Drama de Sofia Coppola, com Cailee Spaeny, Jacob Elordi, Ari Cohen e Dagmara Dominczyk.'}
     
     inserted_data = db.insert(data)
-    print(data)
 
     if inserted_data:
         print("Inserção bem-sucedida!")
