@@ -20,7 +20,26 @@ class DataBase:
         else:
             return None
         
+"""if __name__ == "__main__":
+    db = DataBase()
+    data = {'title': 'Assista ao trailer do filme "Priscilla', 'texto': 'Drama de Sofia Coppola, com Cailee Spaeny, Jacob Elordi, Ari Cohen e Dagmara Dominczyk.'}
+    db.insert(data)
+"""
 if __name__ == "__main__":
     db = DataBase()
-    data = {'title': 'Assista ao trailer do filme "Priscilla', 'texto': 'Drama de Sofia Coppola, com Cailee Spaeny, Jacob Elordi, Ari Cohen e Dagmara Dominczyk.', 'date': '14/10/2023'}
-    db.insert(data)
+    data = {'title': 'Assista ao trailer do filme "Priscilla', 'texto': 'Drama de Sofia Coppola, com Cailee Spaeny, Jacob Elordi, Ari Cohen e Dagmara Dominczyk.'}
+    
+    inserted_data = db.insert(data)
+    
+    if inserted_data:
+        print("Inserção bem-sucedida!")
+        # Agora, você pode consultar o documento inserido para verificar
+        query = {'title': inserted_data['title']}
+        result = db.news.find_one(query)
+        if result:
+            print("Documento encontrado:")
+            print(result)
+        else:
+            print("Documento não encontrado.")
+    else:
+        print("Inserção falhou.")
