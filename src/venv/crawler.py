@@ -35,7 +35,8 @@ class Crawler:
             
             data = {
                 'title': title,
-                'texto': texto
+                'texto': texto,
+                'date': datetime.now()
             }
 
             print("\nG1\n", data)
@@ -55,7 +56,8 @@ class Crawler:
             
             data = {
                 'title': title,
-                'texto': texto
+                'texto': texto,
+                'date': datetime.now()  
             }
 
             print("\nAdoro Cinema\n", data)
