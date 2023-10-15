@@ -22,4 +22,5 @@ class DataBase:
         
 if __name__ == "__main__":
     db = DataBase()
+    data = {'title': 'Assista ao trailer do filme "Priscilla', 'texto': 'Drama de Sofia Coppola, com Cailee Spaeny, Jacob Elordi, Ari Cohen e Dagmara Dominczyk.', 'date': '14/10/2023'}
     db.insert(data)
