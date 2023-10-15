@@ -7,6 +7,6 @@ class DataBase:
 
     def connect(self):
         client = MongoClient(os.getenv('DB_URI'))
-        collection = client['news']
-        return collection.news
+        dB = client['news']
+        return dB.news
     
