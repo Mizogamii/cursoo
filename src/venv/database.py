@@ -18,7 +18,7 @@ class DataBase:
         query = {'title': data['title']}
         resultado = self.news.find(query).sort('date', -1)
 
-        if resultado is None:
+        if resultado is not None:
             self.news.insert_one(data)
             print("O outro")
             return data
