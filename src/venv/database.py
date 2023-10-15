@@ -1,6 +1,7 @@
 from pymongo.mongo_client import MongoClient
 from dotenv import load_dotenv
 import os
+
 class DataBase:
     def __init__(self):
         load_dotenv()
@@ -8,7 +9,7 @@ class DataBase:
 
     def connect(self):
         client = MongoClient(os.getenv('DB_URI'))
-        dB = client['news']
+        dB = client['curso']
         return dB.news
     
     def insert(self, data: dict):
@@ -30,7 +31,8 @@ if __name__ == "__main__":
     data = {'title': 'Assista ao trailer do filme "Priscilla', 'texto': 'Drama de Sofia Coppola, com Cailee Spaeny, Jacob Elordi, Ari Cohen e Dagmara Dominczyk.'}
     
     inserted_data = db.insert(data)
-    
+    print(data)
+
     if inserted_data:
         print("Inserção bem-sucedida!")
         # Agora, você pode consultar o documento inserido para verificar

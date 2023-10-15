@@ -4,6 +4,9 @@ from bs4 import BeautifulSoup
 import schedule
 import time #Não tô usando ainda 
 from datetime import datetime
+from datetime import datetime
+from database import DataBase
+
 
 #Link dos sites:
 #1 https://g1.globo.com/pop-arte/cinema/
@@ -39,6 +42,7 @@ class Crawler:
                 'date': datetime.now()
             }
 
+            self
             print("\nG1\n", data)
             
     #extraindo informações do site Adoro Cinema
