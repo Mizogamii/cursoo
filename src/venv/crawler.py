@@ -14,9 +14,10 @@ from dotenv import load_dotenv
 #2 https://www.adorocinema.com/noticias/filmes/cat-23201/
 
 class Crawler:
+    
     def __init__(self):
-		load_dotenv()
-		self.db = DataBase()
+	    load_dotenv()
+	    self.db = DataBase()
 		
     #Solicitando http 
     def request_data(self, url: str, retry=False) -> BeautifulSoup:
