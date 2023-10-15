@@ -47,7 +47,7 @@ class Crawler:
                 'date': datetime.now()
             }
             
-            print("\nG1\n", data)
+            #print("\nG1\n", data)
 
             response = self.db.insert(data)
             
@@ -70,10 +70,10 @@ class Crawler:
                 'date': datetime.now()  
             }
 
-            print("\nAdoro Cinema\n", data)
+            #print("\nAdoro Cinema\n", data)
 
             response = self.db.insert(data)
-            
+
     def execute(self,num_pages: int = 4):
         for page in range(1, num_pages):
             self.extract_from_aCinema(page)
