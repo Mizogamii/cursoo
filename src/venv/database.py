@@ -20,9 +20,9 @@ class DataBase:
 
         if result is None:
             return self.news.insert_one(data)
-        
+        else:
+            return None       
     
-                  
 if __name__ == "__main__":
     db = DataBase()
     data = {'title': 'Assista ao trailer do filme "Priscilla', 'texto': 'Drama de Sofia Coppola, com Cailee Spaeny, Jacob Elordi, Ari Cohen e Dagmara Dominczyk.'}
