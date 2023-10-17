@@ -14,9 +14,9 @@ class DataBase:
         print("Connect")
         return db.news
         
-    def insert(self, data: dict):
+    def insert(self, data: dict) -> dict | None:
         query = {'title': data['title']}
-        result = self.news.find_one(query, sort=('date', -1))
+        result = self.news.find_one(query, sort=[('date', -1)])
 
         if result is None:
             return self.news.insert_one(data)
@@ -25,7 +25,7 @@ class DataBase:
     
 if __name__ == "__main__":
     db = DataBase()
-    data = {'title': 'Assista ao trailer do filme "Priscilla', 'texto': 'Drama de Sofia Coppola, com Cailee Spaeny, Jacob Elordi, Ari Cohen e Dagmara Dominczyk.'}
+    data = {'title': 'Assista ao trailer do filme "Priscilla', 'texto': 'Drama de Sofia Coppola, com Cailee Spaeny, Jacob Elordi, Ari Cohen e Dagmara Dominczyk.', 'date' : '13:58'}
     db.insert(data)
     print("name___")
 

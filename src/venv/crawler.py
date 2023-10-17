@@ -18,7 +18,7 @@ class Crawler:
 	    self.db = DataBase()
 		
     #Solicitando http 
-    def request_data(self, url: str, retry=False) -> BeautifulSoup:
+    def request_data(self, url: str, retry: bool = False) -> BeautifulSoup:
         try:
             response = requests.get(url)
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -77,6 +77,7 @@ class Crawler:
     def execute(self,num_pages: int = 4):
         for page in range(1, num_pages):
             self.extract_from_aCinema(page)
+            exit()
                 
 if __name__ == "__main__":
     crawler = Crawler()
