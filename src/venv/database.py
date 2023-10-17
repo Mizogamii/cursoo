@@ -19,8 +19,10 @@ class DataBase:
         result = self.news.find_one(query, sort=[('date', -1)])
 
         if result is None:
+            print("Testando")
             return self.news.insert_one(data)
         else:
+            print("Testando2")
             return None       
     
 if __name__ == "__main__":
