@@ -1,6 +1,7 @@
 from pymongo.mongo_client import MongoClient
 from dotenv import load_dotenv
 import os
+from bson import ObjectId
 
 
 class DataBase:
@@ -18,12 +19,12 @@ class DataBase:
     def insert(self, data: dict) -> dict | None:
         query = {'title': data['title']}
         result = self.news.find_one(query, sort=[('date', -1)])
-
+        print("Teste")
         if result is None:
-            print("Testando")
+            print("Inserida com sucesso")
             return self.news.insert_one(data)
         else:
-            print("Testando2")
+            print("Conteúdo encontrado")
             return None       
     
 if __name__ == "__main__":

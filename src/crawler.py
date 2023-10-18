@@ -37,9 +37,9 @@ class Crawler:
         
         for newsN in news:
             #Título da notícia
-            title = newsN.find('a', {'class': "feed-post-link gui-color-primary gui-color-hover"}).text
+            title = news.find('a', {'class': "feed-post-link gui-color-primary gui-color-hover"}).text
             #Texto que acompanha a notícia
-            texto = newsN.find('div', {'class': "feed-post-body-resumo"}).text
+            texto = news.find('div', {'class': "feed-post-body-resumo"}).text
             
             data = {
                 'title': title,
@@ -71,6 +71,7 @@ class Crawler:
             }
             
             response = self.db.insert(data)
+            print(response)
 
             print("\nAdoro Cinema\n", data)
 
